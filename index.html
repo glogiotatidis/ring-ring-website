@@ -1,19 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="el">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ring ring</title>
-<meta name="description" content="ring ring — placeholder description. The real copy is still to be written.">
+<title>Ring Ring — ένα αληθινό τηλέφωνο, μόνο για παιδικές φωνές</title>
+<meta name="description" content="Το Ring Ring είναι ένα μικρό κουτί που δίνει σε ένα κανονικό τηλέφωνο μια ασφαλή γραμμή μόνο για παιδιά: καλούν τους φίλους τους χωρίς γονιό στη μέση, χωρίς οθόνη, χωρίς άγνωστο να μπει ποτέ στη γραμμή.">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FDF8E5">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ring ring">
-<meta property="og:description" content="ring ring — placeholder description. The real copy is still to be written.">
-<meta property="og:image" content="https://glogiotatidis.github.io/ring-ring/assets/ring-ring-logo.jpg">
+<meta property="og:locale" content="el_GR">
+<meta property="og:title" content="Ring Ring — ένα αληθινό τηλέφωνο, μόνο για παιδικές φωνές">
+<meta property="og:description" content="Ένα μικρό κουτί που δίνει σε ένα κανονικό τηλέφωνο μια ασφαλή γραμμή μόνο για παιδιά: καλούν τους φίλους τους χωρίς γονιό στη μέση, χωρίς οθόνη, χωρίς άγνωστο στη γραμμή.">
+<meta property="og:image" content="https://ringring.sealabs.net/assets/ring-ring-logo.jpg">
+<meta property="og:url" content="https://ringring.sealabs.net/">
 <style>
   /* Palette sampled from the logo itself:
      #FDF8E5 background, #EE4421 top "ring", #2D72A9 bottom "ring". */
@@ -81,7 +83,7 @@
 
   h1.tagline {
     margin: 0;
-    max-width: 24ch;
+    max-width: 20ch;
     font-size: clamp(1.55rem, 6.4vw, 2.5rem);
     font-weight: 800;
     line-height: 1.15;
@@ -91,8 +93,16 @@
 
   .lede {
     margin: 0;
-    max-width: 42ch;
-    font-size: clamp(1.05rem, 4vw, 1.15rem);
+    max-width: 46ch;
+    font-size: clamp(1.05rem, 4vw, 1.2rem);
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .detail {
+    margin: 0;
+    max-width: 48ch;
+    font-size: clamp(.98rem, 3.6vw, 1.05rem);
     color: var(--ink-soft);
     text-wrap: pretty;
   }
@@ -106,7 +116,7 @@
 
   /* Call to action --------------------------------------------------- */
 
-  .cta-row { margin: 0; }
+  .cta-row { margin: 0; display: flex; flex-direction: column; align-items: center; gap: .7rem; }
 
   .cta {
     display: inline-block;
@@ -130,6 +140,22 @@
   }
 
   .cta:active { transform: translateY(1px); box-shadow: 0 4px 10px rgba(45, 114, 169, .26); }
+
+  /* "Opening soon" state — an honest, non-clickable stand-in for the CTA
+     until the waitlist destination is wired (see the HOW-TO comment below). */
+  .cta.cta--soon {
+    background: #F3C8BC;
+    color: #7A2A16;
+    box-shadow: none;
+    cursor: default;
+  }
+  .cta.cta--soon:hover { transform: none; background: #F3C8BC; box-shadow: none; }
+
+  .cta-note {
+    margin: 0;
+    font-size: .95rem;
+    color: var(--ink-soft);
+  }
 
   a { color: var(--blue); }
   a:focus-visible,
@@ -168,6 +194,7 @@
     .js .rise.d2 { animation-delay: .14s; }
     .js .rise.d3 { animation-delay: .21s; }
     .js .rise.d4 { animation-delay: .28s; }
+    .js .rise.d5 { animation-delay: .35s; }
     .js .logo-frame {
       animation: rise .5s cubic-bezier(.2, .7, .3, 1) both, ring 1.6s ease-in-out .75s 1;
     }
@@ -196,31 +223,56 @@
 
 <main class="hero">
   <div class="logo-frame">
-    <img src="assets/ring-ring-logo.jpg" alt="ring ring logo"
+    <img src="assets/ring-ring-logo.jpg" alt="Ring Ring logo"
          width="1254" height="1254" decoding="async">
   </div>
 
-  <!-- TODO(Giorgos): real copy — replace the h1 below with the real tagline -->
-  <h1 class="tagline rise d1">Placeholder tagline: real words are on their way.</h1>
+  <h1 class="tagline rise d1">Ένα αληθινό τηλέφωνο, μόνο για παιδικές φωνές.</h1>
 
-  <!-- TODO(Giorgos): real copy — replace the paragraph below with a description of the project -->
-  <p class="lede rise d2">This line is a stand-in. Nobody has written down what ring&nbsp;ring actually is yet, so this
-    page says nothing about it: no features, no pricing, no promises. When the real description arrives it
-    replaces this paragraph.</p>
+  <p class="lede rise d2">Το Ring&nbsp;Ring μπαίνει στην πρίζα, συνδέεται με ένα απλό ενσύρματο
+    τηλέφωνο και αφήνει τα παιδιά να καλούν τους φίλους τους — χωρίς γονιό στη μέση, χωρίς οθόνη,
+    χωρίς άγνωστο να μπει ποτέ στη γραμμή.</p>
 
-  <div class="squiggle rise d3" aria-hidden="true">
+  <p class="detail rise d3">Είναι ένα μικρό κουτί, στο μέγεθος πακέτου τσιγάρων, που μπαίνει ανάμεσα
+    στην πρίζα και σε ένα κανονικό τηλέφωνο. Κάθε συσκευή παίρνει τον δικό της αριθμό. Τα παιδιά
+    σηκώνουν το ακουστικό, ακούν τόνο κλήσης, καλούν έναν φίλο — όπως τα τηλέφωνα παλιά, φτιαγμένο
+    σήμερα. Χωρίς app στο κινητό, χωρίς λογαριασμό να θυμούνται, χωρίς αγνώστους.</p>
+
+  <div class="squiggle rise d4" aria-hidden="true">
     <svg viewBox="0 0 200 24" role="presentation" focusable="false">
       <path d="M6 12c6-9 12-9 18 0s12 9 18 0 12-9 18 0 12 9 18 0 12-9 18 0 12 9 18 0 12-9 18 0 12 9 18 0 12-9 18 0"
             fill="none" stroke="#2D72A9" stroke-width="3.2" stroke-linecap="round" opacity=".75"/>
     </svg>
   </div>
 
-  <!-- TODO(Giorgos): real CTA — point this at the real contact address or form -->
-  <p class="cta-row rise d4"><a class="cta" href="#">Say hello</a></p>
+  <!--
+    WAITLIST CTA
+    ============
+    Το Ring Ring δεν πουλιέται ακόμη· αυτό το κουμπί μαζεύει εγγραφές ενδιαφέροντος.
+
+    Σήμερα το κουμπί είναι σε κατάσταση «σύντομα» (μη ενεργό) γιατί ο προορισμός των
+    εγγραφών δεν έχει στηθεί ακόμη. Για να γίνει ΕΝΕΡΓΟ (ένα βήμα):
+
+    ΕΠΙΛΟΓΗ Α — Google Form (προτεινόμενη: οι εγγραφές πέφτουν σε Sheet που διαβάζεται ήδη):
+      Αντικατέστησε όλο το <p class="cta-row"> ... </p> παρακάτω με:
+        <p class="cta-row rise d5">
+          <a class="cta" href="HTTPS_FORM_URL" target="_blank" rel="noopener">Μπες στη λίστα αναμονής</a>
+        </p>
+      όπου HTTPS_FORM_URL είναι ο δημόσιος σύνδεσμος της φόρμας (forms.gle/… ή docs.google.com/forms/…).
+
+    ΕΠΙΛΟΓΗ Β — Formspree/Getform (φόρμα μέσα στη σελίδα): δες README.md §Waitlist.
+
+    Ένα Google Form URL ή ένα Formspree form-id ΔΕΝ είναι μυστικό — επιτρέπεται στο repo.
+    ΜΗΝ βάλεις ποτέ API key ή service-account credential σε αυτή τη σελίδα.
+  -->
+  <p class="cta-row rise d5">
+    <span class="cta cta--soon" role="button" aria-disabled="true">Μπες στη λίστα αναμονής</span>
+    <span class="cta-note">Η εγγραφή ανοίγει πολύ σύντομα — γύρνα ξανά.</span>
+  </p>
 </main>
 
 <footer class="colophon rise">
-  <p>ring ring · this page is a placeholder · <a href="./">home</a></p>
+  <p>Ring Ring · ένα παιχνίδι-τηλέφωνο για παιδιά · <a href="./">αρχική</a></p>
 </footer>
 
 <script>
